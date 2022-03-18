@@ -25,19 +25,19 @@ if(isset($_POST['sub'])){
             <table>
                 <tr>
                     <td>
-                        Name
+                        Nome
                         <input type="text" name="text">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Username
+                        Sobrenome
                         <input type="text" name="user">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        password
+                        Senha
                         <input type="password" name="pass">
                     </td>
                 </tr>
@@ -46,27 +46,34 @@ if(isset($_POST['sub'])){
                         city
                         <select name="city">
                             <option value="">-select-</option>
-                            <option value="knp">kanpur</option>
-                            <option value="lko">lucknow</option>
+                            <?php
+                            $sqlCity= mysqli_query($con,"select * from city")
+                            
+                            while(mysqli_fetch_assoc($sqlCity))
+                            {
+
+                            }
+                            ?>
+                            <option value="knp">Campinas</option>
+                            <option value="lko">Sumaré</option>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Gender
-                        <input type="radio"name="gen" id="gen" value="male">male
-                        <input type="radio" name="gen" id="gen" value="female">female
+                        Sexo
+                        <input type="radio"name="gen" id="gen" value="male">Masculino   
+                        <input type="radio" name="gen" id="gen" value="female">feminino
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Image
+                        Imagem
                         <input type="file" name="f1">
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <input type="submit" value="submit" name="sub">
-                               
                     </td>
                 </tr>
             </table>
