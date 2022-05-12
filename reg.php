@@ -25,19 +25,19 @@ if(isset($_POST['sub'])){
             <table>
                 <tr>
                     <td>
-                        Nome
+                        Name
                         <input type="text" name="text">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Sobrenome
+                        Username
                         <input type="text" name="user">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Senha
+                        password
                         <input type="password" name="pass">
                     </td>
                 </tr>
@@ -47,33 +47,38 @@ if(isset($_POST['sub'])){
                         <select name="city">
                             <option value="">-select-</option>
                             <?php
-                            $sqlCity= mysqli_query($con,"select * from city")
-                            
-                            while(mysqli_fetch_assoc($sqlCity))
-                            {
+                            $sqlCity = mysqli_query($con, "select * from city");
 
+                            while($item = mysqli_fetch_assoc($sqlCity))
+                            {
+                                $nomeItem = $item["city"];
+                                $idCity = $item["ID_city"];
+                                echo"
+                                <option value=$nomeItem>$nomeItem</option>
+                                ";
                             }
                             ?>
-                            <option value="knp">Campinas</option>
-                            <option value="lko">Sumaré</option>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Sexo
-                        <input type="radio"name="gen" id="gen" value="male">Masculino   
-                        <input type="radio" name="gen" id="gen" value="female">feminino
+                        Gender
+                        <input type="radio"name="gen" id="gen" value="male">male
+                        <input type="radio" name="gen" id="gen" value="female">female
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Imagem
+                        Image
                         <input type="file" name="f1">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="submit" value="submit" name="sub">
+                        <input type="submit" value="Cadastrar" name="sub">       
+                    </td>
+                    <td> 
+                        <a href="login.php">Já tenho um login</a> 
                     </td>
                 </tr>
             </table>
