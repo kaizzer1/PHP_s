@@ -1,3 +1,4 @@
+
 <?php
     include 'connect.php';
     
@@ -192,7 +193,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="./image/.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
         <?php echo $f['name'];?>
@@ -883,7 +884,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+              <?php echo $f['id'];?>
 
                 <p>New Orders</p>
               </div>
@@ -1007,7 +1008,7 @@
                       <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                     </div>
                     <!-- /.direct-chat-infos -->
-                    <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                    <img class="direct-chat-img" src="./image/.jpg" alt="message user image">
                     <!-- /.direct-chat-img -->
                     <div class="direct-chat-text">
                       Is this template really for free? That's unbelievable!
@@ -1023,7 +1024,7 @@
                       <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
                     </div>
                     <!-- /.direct-chat-infos -->
-                    <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
+                    <img class="direct-chat-img" src="./image/.jpg" alt="message user image">
                     <!-- /.direct-chat-img -->
                     <div class="direct-chat-text">
                       You better believe it!
