@@ -10,7 +10,7 @@ if(isset($_POST['sub'])){
    if(mysqli_num_rows($qu)>0){
       $f= mysqli_fetch_assoc($qu);
       $_SESSION['id']=$f['id'];
-      header ('location:index.php');
+      header ('location:indexLTE.php');
    }
    else{
        echo 'username or password does not exist';
