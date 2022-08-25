@@ -8,11 +8,14 @@
     $f=mysqli_fetch_assoc($qu);
     
 ?>
-   <!-- head -->
-   <?php include 'Components/head.php';?>
-  <!-- /.head -->
+  <?php include './Components/indexLTE/head.php' ?>  
 
-  <!-- Content Wrapper. Contains page content -->
+  <?php include './Components/indexLTE/navBar.php' ?>  
+
+  <?php include './Components/indexLTE/mainSidebar.php' ?>
+  
+  <?php include './Components/indexLTE/footer.php' ?>
+
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -616,10 +619,3 @@
     </section>
     <!-- /.content -->
   </div>
-
-   <!-- Footer -->
-   <?php include 'Component/footer.php'; ?>
-   <!-- /Footer -->
-
-  
-  

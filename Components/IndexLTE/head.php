@@ -28,11 +28,3 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
- <!-- Navbar -->
- <?php include 'Components/navBar.php';?>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-    <?php include 'Component/mainSidebar.php'; ?>
-   <!-- /Main Sidebar Container -->
