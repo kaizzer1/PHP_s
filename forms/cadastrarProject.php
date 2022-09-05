@@ -1,3 +1,16 @@
+<?php
+header ('Content-Type: text/html; charset=utf-8');
+include '../connect.php';
+if(isset($_POST['sub'])){
+    $name=$_POST['text'];
+    $pass=$_POST['int'];
+
+    $i ="insert into project (name, pass) values ( '$name','$pass') ";
+    //$i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
+    mysqli_query($con, $i);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -859,15 +872,15 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form method="POST"> 
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nome do Projeto</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name Project" name="text"> 
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Senha de acesso ao Projeto</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input type="int" class="form-control" id="exampleInputPassword1" placeholder="Password" name="int"> 
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">File input</label>
@@ -889,7 +902,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary" name="sub">Submit</button>
                 </div>
               </form>
             </div>
