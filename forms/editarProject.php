@@ -1,18 +1,16 @@
 <?php
-header ('Content-Type: text/html; charset=utf-8');
 include '../connect.php';
 if(isset($_POST['sub'])){
     $name=$_POST['text'];
-    $email=$_POST['text'];
-    $burden=$_POST['text'];
-    $age=$_POST['int'];
     $pass=$_POST['int'];
 
-    $i ="insert into developer (name, email, burden, age, pass) values ( '$name', '$email','$burden', '$age', '$pass') ";
-    //$i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
+    $i="update project set name='$n'pass='$p' where id='$_SESSION[id]'";
     mysqli_query($con, $i);
 }
-?>
+    $s="select * from project where id='$_SESSION[id]'";
+    $qu= mysqli_query($con, $s);
+    $f=mysqli_fetch_assoc($qu);
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,9 +22,9 @@ if(isset($_POST['sub'])){
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../adminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../adminLTE-3.2.0/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../AdminLTE-3.2.0/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -111,7 +109,7 @@ if(isset($_POST['sub'])){
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../adminLTE-3.2.0/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="../AdminLTE-3.2.0/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -172,7 +170,7 @@ if(isset($_POST['sub'])){
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
-      <img src="../adminLTE-3.2.0/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="../AdminLTE-3.2.0/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
@@ -181,7 +179,7 @@ if(isset($_POST['sub'])){
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="../adminLTE-3.2.0/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="../AdminLTE-3.2.0/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Alexander Pierce</a>
@@ -409,17 +407,17 @@ if(isset($_POST['sub'])){
               <li class="nav-item">
                 <a href="./cadastrarDev.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Cadastrar Desenvolvedor</p>
+                  <p>Cadastro Desenvolvedor</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="./cadastrarProject.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Cadastrar Projeto</p>
+                  <p>Cadastro Projeto</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/forms/editors.html" class="nav-link">
+                <a href="../forms/editors.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Editors</p>
                 </a>
@@ -862,7 +860,7 @@ if(isset($_POST['sub'])){
       </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
+
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -871,34 +869,22 @@ if(isset($_POST['sub'])){
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Cadastrar Novo Dev</h3>
+                <h3 class="card-title">Editar Projeto</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="POST">
+              <form method="POST"> 
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nome Completo</label>
-                    <input type="name" class="form-control" id="exampleInputEmail1" placeholder="Enter name"  name="text">
+                    <label for="exampleInputEmail1">Nome do Projeto</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name Project" name="text"> 
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="text"> 
+                    <label for="exampleInputPassword1">Senha de acesso ao Projeto</label>
+                    <input type="int" class="form-control" id="exampleInputPassword1" placeholder="Password" name="int"> 
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Função</label>
-                    <input type="burden" class="form-control" id="exampleInputEmail1" placeholder="Enter burden"  name="text">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Idade</label>
-                    <input type="age" class="form-control" id="exampleInputEmail1" placeholder="Enter age" name="int">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Senha</label>
-                    <input type="pass" class="form-control" id="exampleInputPassword1" placeholder="password" name="int">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputFile">arquivo de desenvolvimento</label>
+                    <label for="exampleInputFile">File input</label>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile">
@@ -911,13 +897,13 @@ if(isset($_POST['sub'])){
                   </div>
                   <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">lembre-me</label>
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
                   </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary" name="sub">Submit</button>
+                  <button type="submit" class="btn btn-primary" name="sub">Editar</button>
                 </div>
               </form>
             </div>
@@ -926,7 +912,6 @@ if(isset($_POST['sub'])){
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
     <!-- /.content -->
   </div>
 
@@ -947,15 +932,15 @@ if(isset($_POST['sub'])){
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../adminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
+<script src="../AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../adminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- bs-custom-file-input -->
-<script src="../adminLTE-3.2.0/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script src="../AdminLTE-3.2.0/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../adminLTE-3.2.0/dist/js/adminlte.min.js"></script>
+<script src="../AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../adminLTE-3.2.0/dist/js/demo.js"></script>
+<script src="../AdminLTE-3.2.0/dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
 $(function () {
