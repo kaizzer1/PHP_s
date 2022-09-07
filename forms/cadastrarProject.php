@@ -8,7 +8,9 @@ if(isset($_POST['sub'])){
     $i ="insert into project (name, pass) values ( '$name','$pass') ";
     //$i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
     mysqli_query($con, $i);
+
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -905,6 +907,37 @@ if(isset($_POST['sub'])){
                   <button type="submit" class="btn btn-primary" name="sub">Submit</button>
                 </div>
               </form>
+              <table border='1'>
+                <tr>
+                    <th>
+                        name
+                    </th>
+                    <th>
+                        password
+                    </th>
+              <?php
+                $sq="select * from project";
+                $qu=mysqli_query($con,$sq);
+                while($f=  mysqli_fetch_assoc($qu)){
+                    ?>
+                    <tr>
+                        <td>
+                          <?php echo $f['id']?>
+                        </td>
+                        <td>
+                            <?php echo $f['name']?>
+                        </td>
+                        <td>
+                            <?php echo $f['pass']?>
+                        </td>
+                    </tr>
+                  <?php
+                }
+              ?>
+              
+              </table>
+              <a href="deletarProject.php"> Remover</a>
+              <a href="editarProject.php"> Editar</a>
             </div>
             
           </div>
