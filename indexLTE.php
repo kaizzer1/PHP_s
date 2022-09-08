@@ -8,15 +8,7 @@
     $f=mysqli_fetch_assoc($qu);
     
 ?>
-  <?php include './Components/indexLTE/head.php' ?>  
-
-  <?php include './Components/indexLTE/navBar.php' ?>  
-
-  <?php include './Components/indexLTE/mainSidebar.php' ?>
-  
-  <?php include './Components/indexLTE/footer.php' ?>
-
-  <div class="content-wrapper">
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -619,3 +611,14 @@
     </section>
     <!-- /.content -->
   </div>
+
+
+  <?php include './Components/indexLTE/head.php' ?>  
+
+  <?php include './Components/indexLTE/navBar.php' ?>  
+
+  <?php include './Components/indexLTE/mainSidebar.php' ?>
+  
+  <?php include './Components/indexLTE/footer.php' ?>
+
+  

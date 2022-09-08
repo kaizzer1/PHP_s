@@ -1,9 +1,9 @@
 <?php
-include '../connect.php';
-include '../checkProject.php';
-$id = $_GET['id'];
-$name = $_GET['nome'];
-$pass = $_GET['pass'];
+    include '../connect.php';
+    include '../checkProject.php';
+    $id=$_POST['int'];
+    $name=$_POST['text'];
+    $pass=$_POST['int'];
 ?> 
 
 <!DOCTYPE html>
