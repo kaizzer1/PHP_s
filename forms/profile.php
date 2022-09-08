@@ -860,8 +860,15 @@
                        src="../AdminLTE-3.2.0/dist/img/user4-128x128.jpg"
                        alt="User profile picture">
                 </div>
+                <?php
+                  include '../connect.php';
 
-                <h3 class="profile-username text-center">Nina Mcintire</h3>
+                  $s="select * from project";
+                  $qu= mysqli_query($con, $s);
+                  $f=mysqli_fetch_assoc($qu);  
+                ?>
+
+                <h3 class="profile-username text-center"><?php echo $f['name'];?></h3>
 
                 <p class="text-muted text-center">Software Engineer</p>
 
@@ -873,7 +880,7 @@
                     <b>Following</b> <a class="float-right">543</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Friends</b> <a class="float-right">13,287</a>
+                    <b>views</b> <a class="float-right">13,287</a>
                   </li>
                 </ul>
 
@@ -931,7 +938,8 @@
                 <ul class="nav nav-pills">
                   <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
                   <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings Project</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings Dev</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -1155,29 +1163,24 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <label for="inputEmail" class="col-sm-2 col-form-label">email</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                          <input type="email" class="form-control" id="inputEmail" placeholder="Team Members">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
+                        <label for="inputSkills" class="col-sm-2 col-form-label">burden</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                          <input type="text" class="form-control" id="inputSkills" placeholder="burden">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Pass</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                          <textarea class="form-control" id="inputEmail" placeholder="password"></textarea>
                         </div>
                       </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-                        </div>
-                      </div>
+                      
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
                           <div class="checkbox">

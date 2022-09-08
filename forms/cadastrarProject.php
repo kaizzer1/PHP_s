@@ -937,7 +937,7 @@ if(isset($_POST['sub'])){
               
               </table>
               <a href="deletarProject.php"> Remover</a>
-              <a href="editarProject.php"> Editar</a>
+              <a href="projects.php"> Editar</a>
             </div>
             
           </div>
