@@ -1,13 +1,20 @@
 <?php
 include '../connect.php';
-include '../checkDev.php';
-    $id=$_POST['int'];
-    $name=$_POST['text'];
-    $email=$_POST['text'];
-    $burden=$_POST['text'];
-    $age=$_POST['int'];
-    $pass=$_POST['int'];
-?> 
+if(isset($_POST['sub'])){
+    $t=$_POST['text'];
+    $u=$_POST['user'];
+    $c=$_POST['office'];
+    $g=$_POST['age'];
+    $p=$_POST['pass'];
+    
+    $i="update reg set name='$t', email='$u',burden='$c',age='$g',password='$p', where id='$_SESSION[id]'";
+    mysqli_query($con, $i);
+    header('location:cadastrarDev.php');
+}
+    $s="select * from developer where id='$_SESSION[id]'";
+    $qu= mysqli_query($con, $s);
+    $f=mysqli_fetch_assoc($qu);
+    ?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,29 +27,12 @@ include '../checkDev.php';
 <body>
     <center><h1>Editar developer</h1></center>
     <form method="POST">
-        <input type="int" name="newId" placeholder="Novo Id">
-        <input type="int" name="newDevName" placeholder="Novo name">
-        <input type="text" name="newDevEmail" placeholder="Novo email"><br><br>
-        <input type="text" name="newDevBurden" placeholder="Novo burden">
+        <input type="int" name="text" placeholder="Novo name" >
+        <input type="text" name="user" placeholder="Novo email"><br><br>
+        <input type="text" name="office" placeholder="Novo burden">
         <input type="int" name="newDevAge" placeholder="Nova idade">
-        <input type="int" name="newPass" placeholder="Nova senha">
-        <input type="submit" name="edit" value="Atualizar">
+        <input type="int" name="age" placeholder="Nova senha">
+        <input type="submit" name="sub" value="Atualizar">
     </form>
 </body>
 </html>
-
-<?php
-
-if(isset($_POST['edit'])){
-    $newId = $_POST['newId'];
-    $newDevName = $_POST['newDevName'];
-    $newDevEmail = $_POST['newDevEmail'];
-    $newDevBurden = $_POST['newDevBurden'];
-    $newDevAge = $_POST['newDevAge'];
-    $newPass = $_POST['newPass'];
-    $i = "update developer set id = '$newId', name = '$newDevName', email = '$newDevEmail', burden = '$newDevBurden', age = '$newDevAge', pass = '$newPass' where id='$id'";
-    mysqli_query($con, $i);
-    header('location: cadastrarDev.php');
-}
-
-?>
