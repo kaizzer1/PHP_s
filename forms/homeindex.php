@@ -37,7 +37,7 @@ if(isset($_POST['sub'])){
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../cadastrarProject.php" class="nav-link">Cadastrar Projetos</a>
+        <a href="../../cadastrarProject.php" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -74,11 +74,11 @@ if(isset($_POST['sub'])){
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item">
+            <li class="nav-item">
             <a href="homeindex.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Home
+                <strong>Home</strong>
               </p>
             </a>
           </li>
@@ -86,19 +86,21 @@ if(isset($_POST['sub'])){
             <a href="cadastrarProject.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-              <strong>Cadastrar Projetos</strong>
+                Cadastrar Projetos
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          </li>
+               <li class="nav-item">
             <a href="listaprojetos.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-              Lista de Projetos
+                Lista de Projetos
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          </li>
+               <li class="nav-item">
             <a href="deletarProjects.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
@@ -114,13 +116,7 @@ if(isset($_POST['sub'])){
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="editarProjects.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-              Editar
-              </p>
-            </a>
+        </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -134,12 +130,11 @@ if(isset($_POST['sub'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Cadastro</h1>
+            <h1>Explore nossos recursos</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">Home</li>
-              <li class="breadcrumb-item">Cadastrar Projetos</li>
             </ol>
           </div>
         </div>
@@ -153,29 +148,7 @@ if(isset($_POST['sub'])){
           <!-- left column -->
           <div class="col-md-6">
             <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Cadastrar um Novo Projeto</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form method="POST"> 
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Nome do Projeto</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name Project" name="text"> 
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Senha de acesso ao Projeto</label>
-                    <input type="int" class="form-control" id="exampleInputPassword1" placeholder="Password" name="int"> 
-                    <br>
-                    <button type="submit" class="btn btn-primary" name="sub">Submit</button>
-                  </div>
-                <!-- /.card-body -->
-              </form>
-            </div>
-            
-          </div>
+        
         </div>
       </div><!-- /.container-fluid -->
     </section>

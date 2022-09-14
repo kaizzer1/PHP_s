@@ -1,11 +1,14 @@
 <?php
 header ('Content-Type: text/html; charset=utf-8');
 include '../connect.php';
-if(isset($_POST['sub'])){
-    $name=$_POST['text'];
-    $pass=$_POST['int'];
 
-    $i ="insert into project (name, pass) values ( '$name','$pass') ";
+if(isset($_POST['sub'])){
+    $name=$_POST['name'];
+    $pass=$_POST['pass'];
+    $id=$_POST['id'];
+
+
+    $i ="UPDATE `project` SET `name` = '$name', `pass` = '$pass' WHERE `project`.`id` = '$id'";
     //$i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
     mysqli_query($con, $i);
 
@@ -37,7 +40,7 @@ if(isset($_POST['sub'])){
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../cadastrarProject.php" class="nav-link">Cadastrar Projetos</a>
+        <a href="../../cadastrarProject.php" class="nav-link">Editar Projetos</a>
       </li>
     </ul>
 
@@ -86,7 +89,7 @@ if(isset($_POST['sub'])){
             <a href="cadastrarProject.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-              <strong>Cadastrar Projetos</strong>
+              Cadastrar Projetos
               </p>
             </a>
           </li>
@@ -110,17 +113,11 @@ if(isset($_POST['sub'])){
             <a href="editarProjects.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-              Editar
+              <strong>Editar</strong>
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="editarProjects.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-              Editar
-              </p>
-            </a>
+        </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -134,12 +131,11 @@ if(isset($_POST['sub'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Cadastro</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">Home</li>
-              <li class="breadcrumb-item">Cadastrar Projetos</li>
+              <li class="breadcrumb-item">Editar Projetos</li>
             </ol>
           </div>
         </div>
@@ -155,22 +151,27 @@ if(isset($_POST['sub'])){
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Cadastrar um Novo Projeto</h3>
+                <h3 class="card-title">Editar um Projeto</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form method="POST"> 
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nome do Projeto</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name Project" name="text"> 
+                    <label for="exampleInputEmail1">ID do Projeto</label>
+                    <input type="int" class="form-control" id="exampleInputEmail1" placeholder="Enter ID Project" name="id"> 
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Senha de acesso ao Projeto</label>
-                    <input type="int" class="form-control" id="exampleInputPassword1" placeholder="Password" name="int"> 
-                    <br>
-                    <button type="submit" class="btn btn-primary" name="sub">Submit</button>
+                    <label for="exampleInputPassword1">Novo nome do Projeto</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name" name="name"> 
                   </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Nova senha do Projeto</label>
+                    <input type="int" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pass"> 
+                    <br>
+                    <button type="submit" class="btn btn-primary" name="sub">Editar</button>
+                  </div>
+                </div>
                 <!-- /.card-body -->
               </form>
             </div>

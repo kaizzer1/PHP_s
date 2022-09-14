@@ -37,7 +37,7 @@ if(isset($_POST['sub'])){
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../cadastrarProject.php" class="nav-link">Cadastrar Projetos</a>
+        <a href="../../cadastrarProject.php" class="nav-link">Lista de Projetos</a>
       </li>
     </ul>
 
@@ -86,15 +86,15 @@ if(isset($_POST['sub'])){
             <a href="cadastrarProject.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-              <strong>Cadastrar Projetos</strong>
+              Cadastrar Projetos
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="listaprojetos.php" class="nav-link">
+            <a href="cadastrarProject.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-              Lista de Projetos
+              <strong>Lista de Projetos</strong>
               </p>
             </a>
           </li>
@@ -114,13 +114,7 @@ if(isset($_POST['sub'])){
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="editarProjects.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-              Editar
-              </p>
-            </a>
+        </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -134,12 +128,11 @@ if(isset($_POST['sub'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Cadastro</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">Home</li>
-              <li class="breadcrumb-item">Cadastrar Projetos</li>
+              <li class="breadcrumb-item">Lista de Projetos</li>
             </ol>
           </div>
         </div>
@@ -155,24 +148,45 @@ if(isset($_POST['sub'])){
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Cadastrar um Novo Projeto</h3>
+                <h3 class="card-title">Lista de Projetos</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form method="POST"> 
                 <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Nome do Projeto</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name Project" name="text"> 
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Senha de acesso ao Projeto</label>
-                    <input type="int" class="form-control" id="exampleInputPassword1" placeholder="Password" name="int"> 
-                    <br>
-                    <button type="submit" class="btn btn-primary" name="sub">Submit</button>
-                  </div>
-                <!-- /.card-body -->
               </form>
+              <table    border='1';>
+                <tr>
+                    <th>
+                        id
+                    </th>
+                    <th>
+                        name
+                    </th>
+                    <th>
+                        password
+                    </th>
+              <?php
+                $sq="select * from project";
+                $qu=mysqli_query($con,$sq);
+                while($f=  mysqli_fetch_assoc($qu)){
+                    ?>
+                    <tr>
+                        <td>
+                          <?php echo $f['id']?>
+                        </td>
+                        <td>
+                            <?php echo $f['name']?>
+                        </td>
+                        <td>
+                            <?php echo $f['pass']?>
+                        </td>
+                    </tr>
+                  <?php
+                }
+              ?>
+              
+              </table>
             </div>
             
           </div>
