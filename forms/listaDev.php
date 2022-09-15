@@ -1,18 +1,14 @@
 <?php
 header ('Content-Type: text/html; charset=utf-8');
 include '../connect.php';
-
 if(isset($_POST['sub'])){
-    $id=$_POST['id'];
     $name=$_POST['name'];
     $email=$_POST['email'];
     $burden=$_POST['burden'];
     $age=$_POST['age'];
     $pass=$_POST['pass'];
-    
 
-
-    $i ="UPDATE `developer` SET `name` = '$name', `email` = '$email', `burden` = '$burden', `age` = '$age', `pass` = '$pass' WHERE `developer`.`id` = '$id'";
+    $i ="insert into developer (name, email, burden, age, pass) values ( '$name','$email','$burden','$age','$pass') ";
     //$i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
     mysqli_query($con, $i);
 
@@ -44,7 +40,7 @@ if(isset($_POST['sub'])){
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../cadastrarProject.php" class="nav-link">Editar Desenvolvedores</a>
+        <a href="../../cadastrarDev.php" class="nav-link">Lista de Desenvolvedores</a>
       </li>
     </ul>
 
@@ -101,7 +97,7 @@ if(isset($_POST['sub'])){
             <a href="listaDev.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-              Lista de Desenvolvedores
+              <strong>Lista de Desenvolvedores</strong>
               </p>
             </a>
           </li>
@@ -117,7 +113,7 @@ if(isset($_POST['sub'])){
             <a href="editarDev.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-              <strong>Editar</strong>
+              Editar
               </p>
             </a>
           </li>
@@ -139,7 +135,7 @@ if(isset($_POST['sub'])){
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">Home</li>
-              <li class="breadcrumb-item">Editar Desenvolvedores</li>
+              <li class="breadcrumb-item">Lista de Desenvolvedores</li>
             </ol>
           </div>
         </div>
@@ -155,41 +151,63 @@ if(isset($_POST['sub'])){
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Editar um Desenvolvedor</h3>
+                <h3 class="card-title">Lista de Desenvolvedores</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form method="POST"> 
                 <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">ID do Desenvolvedor</label>
-                    <input type="int" class="form-control" id="exampleInputEmail1" placeholder="Enter ID Project" name="id"> 
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Novo name do Desenvolvedor</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Nome" name="name"> 
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Novo email do Desenvolvedor</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Email" name="email"> 
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Novo burden do Desenvolvedor</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cargo" name="burden"> 
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Nova idade do Desenvolvedor</label>
-                    <input type="int" class="form-control" id="exampleInputPassword1" placeholder="idade" name="age"> 
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Nova senha do Desenvolvedor</label>
-                    <input type="int" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pass"> 
-                    <br>
-                    <button type="submit" class="btn btn-primary" name="sub">Editar</button>
-                  </div>
-                </div>
-                <!-- /.card-body -->
               </form>
+              <table    border='1';>
+                <tr>
+                    <th>
+                        id
+                    </th>
+                    <th>
+                        name
+                    </th>
+                    <th>
+                        email
+                    </th>
+                    <th>
+                        burden
+                    </th>
+                    <th>
+                        age
+                    </th>
+                    <th>
+                        pass
+                    </th>
+              <?php
+                $sq="select * from developer";
+                $qu=mysqli_query($con,$sq);
+                while($f=  mysqli_fetch_assoc($qu)){
+                    ?>
+                    <tr>
+                        <td>
+                          <?php echo $f['id']?>
+                        </td>
+                        <td>
+                            <?php echo $f['name']?>
+                        </td>
+                        <td>
+                            <?php echo $f['email']?>
+                        </td>
+                        <td>
+                            <?php echo $f['burden']?>
+                        </td>
+                        <td>
+                            <?php echo $f['age']?>
+                        </td>
+                        <td>
+                            <?php echo $f['pass']?>
+                        </td>
+                    </tr>
+                  <?php
+                }
+              ?>
+              
+              </table>
             </div>
             
           </div>

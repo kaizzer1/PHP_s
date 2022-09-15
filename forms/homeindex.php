@@ -74,48 +74,30 @@ if(isset($_POST['sub'])){
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-            <li class="nav-item">
-            <a href="homeindex.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                <strong>Home</strong>
-              </p>
-            </a>
-          </li>
                <li class="nav-item">
             <a href="cadastrarProject.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Cadastrar Projetos
+                Projetos
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-          </li>
-          </li>
+        </li>
+        </ul>
+      </nav>
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
                <li class="nav-item">
-            <a href="listaprojetos.php" class="nav-link">
+            <a href="cadastrarDev.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Lista de Projetos
+                Desenvolvedores
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-          </li>
-          </li>
-               <li class="nav-item">
-            <a href="deletarProjects.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Remover
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="editarProjects.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-              Editar
-              </p>
-            </a>
-          </li>
+        </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

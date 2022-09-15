@@ -114,13 +114,6 @@ if(isset($_POST['sub'])){
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="editarProjects.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-              Editar
-              </p>
-            </a>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
