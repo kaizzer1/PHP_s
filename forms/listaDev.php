@@ -183,26 +183,60 @@ if(isset($_POST['sub'])){
                 $qu=mysqli_query($con,$sq);
                 while($f=  mysqli_fetch_assoc($qu)){
                     ?>
-                    <tr>
-                        <td>
-                          <?php echo $f['id']?>
-                        </td>
-                        <td>
-                            <?php echo $f['name']?>
-                        </td>
-                        <td>
-                            <?php echo $f['email']?>
-                        </td>
-                        <td>
-                            <?php echo $f['burden']?>
-                        </td>
-                        <td>
-                            <?php echo $f['age']?>
-                        </td>
-                        <td>
-                            <?php echo $f['pass']?>
-                        </td>
-                    </tr>
+                    <div class="card-header">
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                          <i class="fas fa-times"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-body p-0">
+                      <table class="table table-striped projects">
+                          <tbody>
+                              <tr>
+                                  <td>
+                                    <?php echo $f['id']?>
+                                  </td>
+                                  <td>
+                                      <a>
+                                        <?php echo $f['name']?>
+                                      <br>
+                                        <?php echo $f['email']?>
+                                      </br>
+                                      <br>
+                                        <?php echo $f['burden']?>
+                                      </br>
+                                      </a>
+                                      <br/>
+                                  </td>
+                                  <td>
+                                      <ul class="list-inline">
+                                          <li class="list-inline-item">
+                                              <img alt="Avatar" class="table-avatar" src="../AdminLTE-3.2.0/dist/img/avatar.png">
+                                          </li>
+                                      </ul>
+                                  </td>
+                                  <td class="project-actions text-right">
+                                      <a class="btn btn-primary btn-sm" href="#">
+                                          <i class="fas fa-folder">
+                                          </i>
+                                          View
+                                      </a>
+                                      <a class="btn btn-info btn-sm" href="#">
+                                          <i class="fas fa-pencil-alt">
+                                          </i>
+                                          Edit
+                                      </a>
+                                      <a class="btn btn-danger btn-sm" href="#">
+                                          <i class="fas fa-trash">
+                                          </i>
+                                          Delete
+                                      </a>
+                                  </td>
+                              </tr>
                   <?php
                 }
               ?>
