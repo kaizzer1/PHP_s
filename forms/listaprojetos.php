@@ -155,33 +155,90 @@ if(isset($_POST['sub'])){
               <form method="POST"> 
                 <div class="card-body">
               </form>
-              <table    border='1';>
-                <tr>
-                    <th>
-                        id
-                    </th>
-                    <th>
-                        name
-                    </th>
-                    <th>
-                        password
-                    </th>
               <?php
                 $sq="select * from project";
                 $qu=mysqli_query($con,$sq);
                 while($f=  mysqli_fetch_assoc($qu)){
                     ?>
-                    <tr>
-                        <td>
-                          <?php echo $f['id']?>
-                        </td>
-                        <td>
-                            <?php echo $f['name']?>
-                        </td>
-                        <td>
-                            <?php echo $f['pass']?>
-                        </td>
-                    </tr>
+                    <div class="card-header">
+              <thead>
+                        <tr>
+                          <th style="width: 1%">
+                              Id
+                          </th>
+                          <th style="width: 20%">
+                            information
+                          </th>
+                          <th style="width: 25%">
+                            Team Members
+                          </th>
+                          <th>
+                          Project Progress
+                      </th>
+                      <th style="width: 8%" class="text-center">
+                          Status
+                      </th>
+                      </tr>
+                      </thead>                  
+                    </div>
+                    <div class="card-body p-0">
+                      <table class="table table-striped projects">
+                          <tbody>
+                              <tr>
+                                  <td>
+                                    <?php echo $f['id']?>
+                                  </td>
+                                  <td>
+                                      <a>
+                                        <?php echo $f['name']?>
+                                      <br>
+                                        <?php echo $f['pass']?>
+                                      </br>
+                                      </a>
+                                      <br/>
+                                  </td>
+                                  <td>
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="../AdminLTE-3.2.0/dist/img/avatar.png">
+                              </li>
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="../AdminLTE-3.2.0/dist/img/avatar2.png">
+                              </li>
+                          </ul>
+                      </td>
+                      <td class="project_progress">
+                          <div class="progress progress-sm">
+                              <div class="progress-bar bg-green" role="progressbar" aria-valuenow="47" aria-valuemin="0" aria-valuemax="100" style="width: 47%">
+                              </div>
+                          </div>
+                          <small>
+                              47% Complete
+                          </small>
+                      </td>
+                      <td class="project-state">
+                          <span class="badge badge-success">Success</span>
+                      </td>
+                                  </td>
+                                  <td class="project-actions text-right">
+                                      <a class="btn btn-primary btn-sm" href="#">
+                                          <i class="fas fa-folder">
+                                          </i>
+                                          View
+                                      </a>
+                                      <a class="btn btn-info btn-sm" href="editarProjects.php">
+                                          <i class="fas fa-pencil-alt">
+                                          </i>
+                                          Edit
+                                      </a>
+                                      <a class="btn btn-danger btn-sm" href="deletarProjects.php">
+                                          <i class="fas fa-trash">
+                                          </i>
+                                          Delete
+                                      </a>
+                                  </td>
+                              </tr>
+                </div>
                   <?php
                 }
               ?>

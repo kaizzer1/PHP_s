@@ -158,40 +158,25 @@ if(isset($_POST['sub'])){
               <form method="POST"> 
                 <div class="card-body">
               </form>
-              <table    border='1';>
-                <tr>
-                    <th>
-                        id
-                    </th>
-                    <th>
-                        name
-                    </th>
-                    <th>
-                        email
-                    </th>
-                    <th>
-                        burden
-                    </th>
-                    <th>
-                        age
-                    </th>
-                    <th>
-                        pass
-                    </th>
               <?php
                 $sq="select * from developer";
                 $qu=mysqli_query($con,$sq);
                 while($f=  mysqli_fetch_assoc($qu)){
-                    ?>
-                    <div class="card-header">
-                      <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                          <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                          <i class="fas fa-times"></i>
-                        </button>
-                      </div>
+              ?>
+              <div class="card-header">
+              <thead>
+                        <tr>
+                          <th style="width: 1%">
+                              Id
+                          </th>
+                          <th style="width: 20%">
+                            information
+                          </th>
+                          <th style="width: 25%">
+                            Team Members
+                          </th>
+                      </tr>
+                      </thead>                  
                     </div>
                     <div class="card-body p-0">
                       <table class="table table-striped projects">
@@ -225,18 +210,20 @@ if(isset($_POST['sub'])){
                                           </i>
                                           View
                                       </a>
-                                      <a class="btn btn-info btn-sm" href="#">
+                                      <a class="btn btn-info btn-sm" href="editarDev.php">
                                           <i class="fas fa-pencil-alt">
                                           </i>
                                           Edit
                                       </a>
-                                      <a class="btn btn-danger btn-sm" href="#">
+                                      <a class="btn btn-danger btn-sm" href="deletarDev.php">
                                           <i class="fas fa-trash">
                                           </i>
                                           Delete
                                       </a>
                                   </td>
                               </tr>
+                </div>
+                              
                   <?php
                 }
               ?>
