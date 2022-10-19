@@ -155,6 +155,7 @@ if(isset($_POST['sub'])){
               <form method="POST"> 
                 <div class="card-body">
               </form>
+<<<<<<< HEAD
               <table    border='1';>
               <thead>
                   <tr>
@@ -174,11 +175,37 @@ if(isset($_POST['sub'])){
                       </th>
                   </tr>
               </thead>
+=======
+>>>>>>> 12cb604116cb77711799c5701d03d7e1a6cee607
               <?php
                 $sq="select * from project";
                 $qu=mysqli_query($con,$sq);
                 while($f=  mysqli_fetch_assoc($qu)){
                     ?>
+<<<<<<< HEAD
+=======
+                    <div class="card-header">
+              <thead>
+                        <tr>
+                          <th style="width: 1%">
+                              Id
+                          </th>
+                          <th style="width: 20%">
+                            information
+                          </th>
+                          <th style="width: 25%">
+                            Team Members
+                          </th>
+                          <th>
+                          Project Progress
+                      </th>
+                      <th style="width: 8%" class="text-center">
+                          Status
+                      </th>
+                      </tr>
+                      </thead>                  
+                    </div>
+>>>>>>> 12cb604116cb77711799c5701d03d7e1a6cee607
                     <div class="card-body p-0">
                       <table class="table table-striped projects">
                           <tbody>
@@ -190,10 +217,16 @@ if(isset($_POST['sub'])){
                                       <a>
                                         <?php echo $f['name']?>
                                       <br>
+<<<<<<< HEAD
+=======
+                                        <?php echo $f['pass']?>
+                                      </br>
+>>>>>>> 12cb604116cb77711799c5701d03d7e1a6cee607
                                       </a>
                                       <br/>
                                   </td>
                                   <td>
+<<<<<<< HEAD
                                       <ul class="list-inline">
                                           <li class="list-inline-item">
                                               <img alt="Avatar" class="table-avatar" src="../AdminLTE-3.2.0/dist/img/avatar.png">
@@ -207,16 +240,42 @@ if(isset($_POST['sub'])){
                           </div>
                           <small>
                               77% Complete
+=======
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="../AdminLTE-3.2.0/dist/img/avatar.png">
+                              </li>
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="../AdminLTE-3.2.0/dist/img/avatar2.png">
+                              </li>
+                          </ul>
+                      </td>
+                      <td class="project_progress">
+                          <div class="progress progress-sm">
+                              <div class="progress-bar bg-green" role="progressbar" aria-valuenow="47" aria-valuemin="0" aria-valuemax="100" style="width: 47%">
+                              </div>
+                          </div>
+                          <small>
+                              47% Complete
+>>>>>>> 12cb604116cb77711799c5701d03d7e1a6cee607
                           </small>
                       </td>
                       <td class="project-state">
                           <span class="badge badge-success">Success</span>
                       </td>
+<<<<<<< HEAD
+=======
+                                  </td>
+>>>>>>> 12cb604116cb77711799c5701d03d7e1a6cee607
                                   <td class="project-actions text-right">
                                       <a class="btn btn-primary btn-sm" href="#">
                                           <i class="fas fa-folder">
                                           </i>
+<<<<<<< HEAD
                                           Detail
+=======
+                                          View
+>>>>>>> 12cb604116cb77711799c5701d03d7e1a6cee607
                                       </a>
                                       <a class="btn btn-info btn-sm" href="editarProjects.php">
                                           <i class="fas fa-pencil-alt">
@@ -230,6 +289,10 @@ if(isset($_POST['sub'])){
                                       </a>
                                   </td>
                               </tr>
+<<<<<<< HEAD
+=======
+                </div>
+>>>>>>> 12cb604116cb77711799c5701d03d7e1a6cee607
                   <?php
                 }
               ?>

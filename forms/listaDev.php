@@ -158,6 +158,7 @@ if(isset($_POST['sub'])){
               <form method="POST"> 
                 <div class="card-body">
               </form>
+<<<<<<< HEAD
               <table    border='1';>
               <thead>
                   <tr>
@@ -172,11 +173,32 @@ if(isset($_POST['sub'])){
                       </th>
                   </tr>
               </thead>
+=======
+>>>>>>> 12cb604116cb77711799c5701d03d7e1a6cee607
               <?php
                 $sq="select * from developer";
                 $qu=mysqli_query($con,$sq);
                 while($f=  mysqli_fetch_assoc($qu)){
+<<<<<<< HEAD
                     ?>
+=======
+              ?>
+              <div class="card-header">
+              <thead>
+                        <tr>
+                          <th style="width: 1%">
+                              Id
+                          </th>
+                          <th style="width: 20%">
+                            information
+                          </th>
+                          <th style="width: 25%">
+                            Team Members
+                          </th>
+                      </tr>
+                      </thead>                  
+                    </div>
+>>>>>>> 12cb604116cb77711799c5701d03d7e1a6cee607
                     <div class="card-body p-0">
                       <table class="table table-striped projects">
                           <tbody>
@@ -225,6 +247,8 @@ if(isset($_POST['sub'])){
                                       </a>
                                   </td>
                               </tr>
+                </div>
+                              
                   <?php
                 }
               ?>
