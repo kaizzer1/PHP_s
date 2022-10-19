@@ -156,32 +156,80 @@ if(isset($_POST['sub'])){
                 <div class="card-body">
               </form>
               <table    border='1';>
-                <tr>
-                    <th>
-                        id
-                    </th>
-                    <th>
-                        name
-                    </th>
-                    <th>
-                        password
-                    </th>
+              <thead>
+                  <tr>
+                      <th style="width: 1%">
+                          #
+                      </th>
+                      <th style="width: 20%">
+                          Project Name
+                      </th>
+                      <th style="width: 30%">
+                          Team Members
+                      </th>
+                      <th>
+                          Project Progress
+                      </th>
+                      <th style="width: 20%">
+                      </th>
+                  </tr>
+              </thead>
               <?php
                 $sq="select * from project";
                 $qu=mysqli_query($con,$sq);
                 while($f=  mysqli_fetch_assoc($qu)){
                     ?>
-                    <tr>
-                        <td>
-                          <?php echo $f['id']?>
-                        </td>
-                        <td>
-                            <?php echo $f['name']?>
-                        </td>
-                        <td>
-                            <?php echo $f['pass']?>
-                        </td>
-                    </tr>
+                    <div class="card-body p-0">
+                      <table class="table table-striped projects">
+                          <tbody>
+                              <tr>
+                                  <td>
+                                    <?php echo $f['id']?>
+                                  </td>
+                                  <td>
+                                      <a>
+                                        <?php echo $f['name']?>
+                                      <br>
+                                      </a>
+                                      <br/>
+                                  </td>
+                                  <td>
+                                      <ul class="list-inline">
+                                          <li class="list-inline-item">
+                                              <img alt="Avatar" class="table-avatar" src="../AdminLTE-3.2.0/dist/img/avatar.png">
+                                          </li>
+                                      </ul>
+                                  </td>
+                                  <td class="project_progress">
+                          <div class="progress progress-sm">
+                              <div class="progress-bar bg-green" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
+                              </div>
+                          </div>
+                          <small>
+                              77% Complete
+                          </small>
+                      </td>
+                      <td class="project-state">
+                          <span class="badge badge-success">Success</span>
+                      </td>
+                                  <td class="project-actions text-right">
+                                      <a class="btn btn-primary btn-sm" href="#">
+                                          <i class="fas fa-folder">
+                                          </i>
+                                          Detail
+                                      </a>
+                                      <a class="btn btn-info btn-sm" href="editarProjects.php">
+                                          <i class="fas fa-pencil-alt">
+                                          </i>
+                                          Edit
+                                      </a>
+                                      <a class="btn btn-danger btn-sm" href="deletarProjects.php">
+                                          <i class="fas fa-trash">
+                                          </i>
+                                          Delete
+                                      </a>
+                                  </td>
+                              </tr>
                   <?php
                 }
               ?>

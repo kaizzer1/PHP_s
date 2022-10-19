@@ -159,40 +159,24 @@ if(isset($_POST['sub'])){
                 <div class="card-body">
               </form>
               <table    border='1';>
-                <tr>
-                    <th>
-                        id
-                    </th>
-                    <th>
-                        name
-                    </th>
-                    <th>
-                        email
-                    </th>
-                    <th>
-                        burden
-                    </th>
-                    <th>
-                        age
-                    </th>
-                    <th>
-                        pass
-                    </th>
+              <thead>
+                  <tr>
+                      <th style="width: 1%">
+                          #
+                      </th>
+                      <th style="width: 10%">
+                          Informations
+                      </th>
+                      <th style="width: 20%">
+                          Verification
+                      </th>
+                  </tr>
+              </thead>
               <?php
                 $sq="select * from developer";
                 $qu=mysqli_query($con,$sq);
                 while($f=  mysqli_fetch_assoc($qu)){
                     ?>
-                    <div class="card-header">
-                      <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                          <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                          <i class="fas fa-times"></i>
-                        </button>
-                      </div>
-                    </div>
                     <div class="card-body p-0">
                       <table class="table table-striped projects">
                           <tbody>
@@ -202,15 +186,16 @@ if(isset($_POST['sub'])){
                                   </td>
                                   <td>
                                       <a>
+                                      <p>
                                         <?php echo $f['name']?>
-                                      <br>
+                                      </p>
+                                      <p>
                                         <?php echo $f['email']?>
-                                      </br>
-                                      <br>
+                                      </P>
+                                      <p>
                                         <?php echo $f['burden']?>
-                                      </br>
+                                      </p>
                                       </a>
-                                      <br/>
                                   </td>
                                   <td>
                                       <ul class="list-inline">
@@ -219,18 +204,21 @@ if(isset($_POST['sub'])){
                                           </li>
                                       </ul>
                                   </td>
+                                  <td class="project-state">
+                          <span class="badge badge-success">Success</span>
+                      </td>
                                   <td class="project-actions text-right">
                                       <a class="btn btn-primary btn-sm" href="#">
                                           <i class="fas fa-folder">
                                           </i>
-                                          View
+                                          Detail
                                       </a>
-                                      <a class="btn btn-info btn-sm" href="#">
+                                      <a class="btn btn-info btn-sm" href="editarDev.php">
                                           <i class="fas fa-pencil-alt">
                                           </i>
                                           Edit
                                       </a>
-                                      <a class="btn btn-danger btn-sm" href="#">
+                                      <a class="btn btn-danger btn-sm" href="deletarDev.php">
                                           <i class="fas fa-trash">
                                           </i>
                                           Delete
