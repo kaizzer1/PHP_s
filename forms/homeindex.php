@@ -119,6 +119,21 @@ if(isset($_POST['sub'])){
               <li class="breadcrumb-item">Home</li>
             </ol>
           </div>
+          <br></br>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>44</h3>
+
+                <p>Desenvolvedores Registrados</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="listaDev.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
           
         </div>
       </div><!-- /.container-fluid -->

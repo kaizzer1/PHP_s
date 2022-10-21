@@ -68,7 +68,7 @@ if(isset($_POST['sub'])){
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a href="#" class="d-block">Fabiano</a>
+          <a href="#" class="d-block"> <?php $name ?></a>
         </div>
       </div>
 
@@ -174,7 +174,7 @@ if(isset($_POST['sub'])){
                     <input type="int" class="form-control" id="exampleInputEmail1" placeholder="Enter idade Project" name="age"> 
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Senha de acesso ao Projeto</label>
+                    <label for="exampleInputPassword1">Senha</label>
                     <input type="int" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pass"> 
                     <br>
                     <button type="submit" class="btn btn-primary" name="sub">Submit</button>
