@@ -3,14 +3,25 @@
 include '../connect.php';
 
 if(isset($_POST['sub'])){
-    $u=$_POST['username'];
-    $p=$_POST['password'];
-    $s= "select * from reg where username='$u' and password= '$p'";   
+    $u=$_POST['name'];
+    $p=$_POST['pass'];
+    $s= "select * from developer where name='$u' and pass='$p'";    
+
+    $n=$_POST['name'];
+    $a=$_POST['pass'];
+    $l= "select * from reg where name='$n' and pass='$a'";    
+
    $qu= mysqli_query($con, $s);
    if(mysqli_num_rows($qu)>0){
       $f= mysqli_fetch_assoc($qu);
       $_SESSION['id']=$f['id'];
-      header ('location:homeindex.php');
+      header ('location:AreaDev/homeindex.php');
+   }
+   $qa= mysqli_query($con, $l);
+   if(mysqli_num_rows($qa)>0){
+      $f= mysqli_fetch_assoc($qa);
+      $_SESSION['id']=$f['id'];
+      header ('location:AreaAdmin/homeindex.php');
    }
    else{
        echo 'username or password does not exist';
@@ -47,7 +58,7 @@ if(isset($_POST['sub'])){
 
       <form method="post">
         <div class="input-group mb-3">
-          <input type="text" name="username" class="form-control" placeholder="Username">
+          <input type="text" name="name" class="form-control" placeholder="name">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -55,7 +66,7 @@ if(isset($_POST['sub'])){
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password">
+          <input type="password" name="pass" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

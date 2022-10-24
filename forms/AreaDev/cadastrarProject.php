@@ -1,6 +1,6 @@
 <?php
 header ('Content-Type: text/html; charset=utf-8');
-include '../connect.php';
+include '../../connect.php';
 if(isset($_POST['sub'])){
     $name=$_POST['text'];
     $pass=$_POST['int'];
@@ -23,12 +23,17 @@ if(isset($_POST['sub'])){
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../AdminLTE-3.2.0/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../AdminLTE-3.2.0/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
+
+<div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="../AreaCliente/images/logoTCC.png" alt="AdminLTELogo" height="150" width="150">
+</div>
+
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -37,7 +42,7 @@ if(isset($_POST['sub'])){
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../cadastrarProject.php" class="nav-link">Cadastrar Projetos</a>
+        <a href="cadastrarProject.php" class="nav-link">Cadastrar Projetos</a>
       </li>
     </ul>
 
@@ -56,19 +61,28 @@ if(isset($_POST['sub'])){
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
-      <span class="brand-text
-       font-weight-light">Genius Lab</span>
+    <a href="homeindex.php" class="brand-link">
+      <span class="brand-text font-weight-light">Genius Lab</span>
     </a>
+
+    <?php
+      $sq="select * from developer where id='$_SESSION[id]'";
+      $qu=mysqli_query($con,$sq);
+      while($f=  mysqli_fetch_assoc($qu)){
+    ?>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <img src="../AreaCliente/images/Profile.png" alt="img*">
         <div class="info">
-          <a href="#" class="d-block">Fabiano</a>
+          <a href="#" class="d-block"><?php echo $f['name']?></a>
         </div>
       </div>
+      <?php
+        }
+      ?>
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -96,22 +110,6 @@ if(isset($_POST['sub'])){
               <i class="nav-icon fas fa-edit"></i>
               <p>
               Lista de Projetos
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="deletarProjects.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Remover
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="editarProjects.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-              Editar
               </p>
             </a>
           </li>
@@ -187,15 +185,15 @@ if(isset($_POST['sub'])){
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
+<script src="../../AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- bs-custom-file-input -->
-<script src="../AdminLTE-3.2.0/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script src="../../AdminLTE-3.2.0/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
+<script src="../../AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../AdminLTE-3.2.0/dist/js/demo.js"></script>
+<script src="../../AdminLTE-3.2.0/dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
 $(function () {
