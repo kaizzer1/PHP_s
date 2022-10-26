@@ -143,7 +143,7 @@ if(isset($_POST['sub'])){
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
-          <div class="col-md-6">
+          <div class="col-md-12">
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
@@ -154,32 +154,35 @@ if(isset($_POST['sub'])){
               <form method="POST"> 
                 <div class="card-body">
               </form>
-              <?php
-                $sq="select * from project";
-                $qu=mysqli_query($con,$sq);
-                while($f=  mysqli_fetch_assoc($qu)){
-                    ?>
-                    <div class="card-header">
+              <div class="card-header">
+                <table class="table table-striped projects">
                     <thead>
                         <tr>
                           <th style="width: 1%">
                               Id
                           </th>
-                          <th style="width: 20%">
+                          <th style="width: 15%">
                             information
                           </th>
-                          <th style="width: 40%">
+                          <th style="width: 25%">
                             Team Members
                           </th>
-                          <th>
+                          <th style="widht: 15%">
                           Project Progress
-                      </th>
-                      <th style="width: 8%">
+                        </th>
+                        <th style="width: 43%">
                           Status
-                      </th>
+                        </th>
                       </tr>
                     </thead>                  
-                    </div>
+                  </table
+
+                    <?php
+                      $sq="select * from project";
+                      $qu=mysqli_query($con,$sq);
+                      while($f=  mysqli_fetch_assoc($qu)){
+                    ?>
+                    
                     <div class="card-body p-0">
                       <table class="table table-striped projects">
                           <tbody>
@@ -242,21 +245,14 @@ if(isset($_POST['sub'])){
                                       </a>
                                   </td>
                               </tr>
-                </div>
-                  <?php
-                }
-              ?>
-              
-              </table>
-            </div>
-            
-          </div>
         </div>
+        <?php
+          }
+        ?>
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
-
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->

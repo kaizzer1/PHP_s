@@ -130,15 +130,17 @@ if(isset($_POST['sub'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
+            <h1>Projects</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item">Home</li>
-              <li class="breadcrumb-item">Editar Projetos</li>
+              <li class="breadcrumb-item">Home</a></li>
+              <li class="breadcrumb-item active"> Editar Projects</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
+    </section>ntainer-fluid -->
     </section>
 
 

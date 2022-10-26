@@ -146,7 +146,7 @@ if(isset($_POST['sub'])){
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
-          <div class="col-md-6">
+          <div class="col-md-12">
             <!-- general form elements -->
             <ion-icon name="add-circle-outline"></ion-icon>
             <div class="card card-primary">
@@ -158,13 +158,10 @@ if(isset($_POST['sub'])){
               <form method="POST"> 
                 <div class="card-body">
               </form>
-              <?php
-                $sq="select * from developer";
-                $qu=mysqli_query($con,$sq);
-                while($f=  mysqli_fetch_assoc($qu)){
-              ?>
+              
 
               <div class="card-header">
+              <table class="table table-striped projects">
               <thead>
                 <tr>
                   <th style="width: 1%">
@@ -173,12 +170,17 @@ if(isset($_POST['sub'])){
                   <th style="width: 20%">
                     Informações
                   </th>
-                  <th style="width: 25%">
+                  <th style="width: 20%">
                     Verificação
                   </th>
                 </tr>
-              </thead>     
-                           
+                </thead>                  
+                  </table     
+                  <?php
+                $sq="select * from developer";
+                $qu=mysqli_query($con,$sq);
+                while($f=  mysqli_fetch_assoc($qu)){
+              ?>   
                     </div>
                     <div class="card-body p-0">
                       <table class="table table-striped projects">
@@ -192,21 +194,9 @@ if(isset($_POST['sub'])){
                                       <p>
                                         <?php echo $f['name']?>
                                       </p>
-                                      <p>
-                                        <?php echo $f['email']?>
-                                      </P>
-                                      <p>
-                                        <?php echo $f['burden']?>
-                                      </p>
                                       </a>
                                   </td>
-                                  <td>
-                                      <ul class="list-inline">
-                                          <li class="list-inline-item">
-                                              <img alt="Avatar" class="table-avatar" src="../../AdminLTE-3.2.0/dist/img/avatar.png">
-                                          </li>
-                                      </ul>
-                                  </td>
+                </br>
                                   <td class="project-state">
                           <span class="badge badge-success">Success</span>
                       </td>
@@ -228,16 +218,10 @@ if(isset($_POST['sub'])){
                                       </a>
                                   </td>
                               </tr>
-                </div>
-                              
-                  <?php
+            </div>
+            <?php
                 }
               ?>
-
-              <i class="fa-solid fa-plus"></i>
-              </table>
-            </div>
-            
           </div>
         </div>
       </div><!-- /.container-fluid -->
