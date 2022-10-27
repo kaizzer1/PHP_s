@@ -6,7 +6,7 @@ if(isset($_POST['sub'])){
     $pass=$_POST['int'];
 
     $i ="insert into project (name, pass) values ( '$name','$pass') ";
-    //$i="insert into developer(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
+    //$i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
     mysqli_query($con, $i);
 
 }
@@ -66,7 +66,7 @@ if(isset($_POST['sub'])){
     </a>
 
     <?php
-      $sq="select * from developer where id='$_SESSION[id]'";
+      $sq="select * from reg where id='$_SESSION[id]'";
       $qu=mysqli_query($con,$sq);
       while($f=  mysqli_fetch_assoc($qu)){
     ?>
@@ -158,11 +158,11 @@ if(isset($_POST['sub'])){
                 <table class="table table-striped projects">
                     <thead>
                         <tr>
-                          <th style="width: 1%">
+                          <th style="width: 4%">
                               Id
                           </th>
                           <th style="width: 15%">
-                            information
+                            Project Name 
                           </th>
                           <th style="width: 25%">
                             Team Members
@@ -193,11 +193,6 @@ if(isset($_POST['sub'])){
                                   <td>
                                       <a>
                                         <?php echo $f['name']?>
-                                      <br>
-
-                                        <?php echo $f['pass']?>
-                                      </br>
-
                                       </a>
                                       <br/>
                                   </td>
@@ -216,15 +211,28 @@ if(isset($_POST['sub'])){
                                   </td>
                                   <td class="project_progress">
                           <div class="progress progress-sm">
-                              <div class="progress-bar bg-green" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
-                              </div>
+                            <?php
+                          $progress = $f['progress'];
+                                if( $progress > 49){
+                                  echo "<div class='progress-bar bg-green' role='progressbar' aria-valuenow='77' aria-valuemin='0' aria-valuemax='100' style='width: $progress%'> </div>";      
+                                }else{
+                                  echo "<div class='progress-bar bg-danger' role='progressbar' aria-valuenow='77' aria-valuemin='0' aria-valuemax='100' style='width: $progress%'> </div>";
+                                }
+                            ?>
+                              
                           </div>
                           <small>
-                              77% Complete
+                          <?php echo $f['progress']?>% Complete
                       </td>
-                      <td class="project-state">
-                          <span class="badge badge-success">Success</span>
-                      </td>
+                        <td class="project-state">
+                            <?php 
+                                if($f['status']=="Success" || $f['status']=="Progress"){
+                                  echo "<span class='badge badge-success'> Conclusion </span>";      
+                                }else{
+                                  echo "<span class='badge badge-danger'> Incomplete </span>";
+                                }
+                            ?>
+                        </td>
                                   </td>
                                   <td class="project-actions text-right">
                                       <a class="btn btn-primary btn-sm" href="#">
@@ -237,6 +245,11 @@ if(isset($_POST['sub'])){
                                           <i class="fas fa-pencil-alt">
                                           </i>
                                           Edit
+                                      </a>
+                                      <a class="btn btn-danger btn-sm" href="deletarProjects.php">
+                                          <i class="fas fa-trash">
+                                          </i>
+                                          Delete
                                       </a>
                                   </td>
                               </tr>

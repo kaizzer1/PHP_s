@@ -164,14 +164,12 @@ if(isset($_POST['sub'])){
               <table class="table table-striped projects">
               <thead>
                 <tr>
-                  <th style="width: 1%">
+                  <th style="width: 5%">
                     Id
                   </th>
-                  <th style="width: 20%">
-                    Informações
                   </th>
-                  <th style="width: 20%">
-                    Verificação
+                  <th style="width: 15%">
+                    Developer Name
                   </th>
                 </tr>
                 </thead>                  
@@ -190,16 +188,23 @@ if(isset($_POST['sub'])){
                                     <?php echo $f['id']?>
                                   </td>
                                   <td>
+                                  <?php
+                                 if($f['name']=="Lucas Kaizer Brito"){
+                                  echo "<img src='../AreaCliente/images/LucasKaizer.jpeg' alt='Dev Avatar' class='img-size-50 mr-3 img-circle'>";      
+                                }else{
+                                  echo " <img src='../AreaCliente/images/Alanis Lua.jpg' alt='Dev Avatar' class='img-size-50 mr-3 img-circle'>";
+                                }
+                            ?>
+          
+                                  </td>
+                                  <td>
                                       <a>
                                       <p>
                                         <?php echo $f['name']?>
                                       </p>
                                       </a>
                                   </td>
-                </br>
-                                  <td class="project-state">
-                          <span class="badge badge-success">Success</span>
-                      </td>
+                                </br> 
                                   <td class="project-actions text-right">
                                       <a class="btn btn-primary btn-sm" href="#">
                                           <i class="fas fa-folder">

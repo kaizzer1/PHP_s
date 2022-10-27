@@ -4,8 +4,10 @@ include '../../connect.php';
 if(isset($_POST['sub'])){
     $name=$_POST['text'];
     $pass=$_POST['int'];
+    $progress=$_POST['progress'];
+    $status=$_POST['status'];
 
-    $i ="insert into project (name, pass) values ( '$name','$pass') ";
+    $i ="insert into project (name, pass, progress, status) values ( '$name','$pass', '$progress', '$status') ";
     //$i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
     mysqli_query($con, $i);
 
@@ -156,6 +158,14 @@ if(isset($_POST['sub'])){
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nome do Projeto</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name Project" name="text"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Progresso</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name Project" name="progress"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Status</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name Project" name="status"> 
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Senha de acesso ao Projeto</label>
