@@ -80,7 +80,7 @@ if(isset($_POST['sub'])){
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <img src="../AreaCliente/images/Profile.png" alt="img*">
         <div class="info">
-          <a href="#" class="d-block"><?php echo $f['name']?></a>
+          <a href="profile.php" class="d-block"><?php echo $f['name']?></a>
         </div>
       </div>
       <?php
@@ -140,7 +140,7 @@ if(isset($_POST['sub'])){
           </div>
         </div>
       </div><!-- /.container-fluid -->
-    </section>ntainer-fluid -->
+    </section>
     </section>
 
 

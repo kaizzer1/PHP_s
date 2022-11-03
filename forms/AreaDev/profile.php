@@ -1,6 +1,6 @@
 <?php
 header ('Content-Type: text/html; charset=utf-8');
-include '../connect.php';
+include '../../connect.php';
 if(isset($_POST['sub'])){
     $name=$_POST['text'];
     $pass=$_POST['int'];
@@ -23,12 +23,17 @@ if(isset($_POST['sub'])){
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../AdminLTE-3.2.0/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../AdminLTE-3.2.0/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
+
+<div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="../AreaCliente/images/logoTCC.png" alt="AdminLTELogo" height="150" width="150">
+</div>
+
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -37,7 +42,7 @@ if(isset($_POST['sub'])){
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../cadastrarProject.php" class="nav-link">Home</a>
+        <a href="homeindex.php" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -51,40 +56,37 @@ if(isset($_POST['sub'])){
       </li>
     </ul>
   </nav>
+
+  
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
+    <a href="homeindex.php" class="brand-link">
       <span class="brand-text font-weight-light">Genius Lab</span>
     </a>
+
+    <?php
+      $sq="select * from developer where id='$_SESSION[id]'";
+      $qu=mysqli_query($con,$sq);
+      while($f=  mysqli_fetch_assoc($qu)){
+    ?>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <img src="../AreaCliente/images/Profile.png" alt="img*">
         <div class="info">
-          <a href="#" class="d-block">Fabiano</a>
+          <a href="profile.php" class="d-block"><?php echo $f['name']?></a>
         </div>
       </div>
+      <?php
+        }
+      ?>
 
       <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-               <li class="nav-item">
-            <a href="cadastrarProject.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Projetos
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-        </li>
-        </ul>
-      </nav>
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -111,34 +113,72 @@ if(isset($_POST['sub'])){
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Explore nossos recursos</h1>
+          <div class="col-sm-6" >
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">Home</li>
             </ol>
           </div>
-          <br></br>
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
+  
+      <div class="container-fluid">
+      <?php
+        $sq="select * from developer where id='$_SESSION[id]'";
+        $qu=mysqli_query($con,$sq);
+        while($f=  mysqli_fetch_assoc($qu)){
+      ?>
+        <div class="row">
+          <div class="col-md-4">
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                  <?php
+                    if($f['name']=="Lucas Kaizer"){
+                      echo "<img src='../AreaCliente/images/LucasKaizer.jpeg' alt='Dev Avatar' class='img-size-50 mr-3 img-circle'>";      
+                    }else{
+                      echo " <img src='../AreaCliente/images/Alanis Lua.jpg' alt='Dev Avatar' class='img-size-50 mr-3 img-circle'>";
+                    }
+                  ?>
+                </div>
 
-                <p>Desenvolvedores Registrados</p>
+                <h3 class="profile-username text-center"><?php echo $f['name']?></h3>
+
+                <p class="text-muted text-center"><?php echo $f['burden']?></p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>Id</b> <a class="float-right"><?php echo $f['id']?></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Email</b> <a class="float-right"><?php echo $f['email']?></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Idade</b> <a class="float-right"><?php echo $f['age']?></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Password</b> <a class="float-right">*****</a>
+                  </li>
+                </ul>
+
+                <a href="profileEditDev.php" class="btn btn-primary btn-block"><b>Editar</b></a>
               </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="listaDev.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <!-- /.card-body -->
             </div>
           </div>
-          
         </div>
-      </div><!-- /.container-fluid -->
-    </section>
+        <?php
+                }
+              ?>
+      </div>
 
+        <section class="content">
+          <div class="container-fluid">
+        <!-- Info boxes -->
+        
+    </section>
+    </section>
 
     <section class="content">
       <div class="container-fluid">
@@ -164,15 +204,15 @@ if(isset($_POST['sub'])){
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
+<script src="../../AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- bs-custom-file-input -->
-<script src="../AdminLTE-3.2.0/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script src="../../AdminLTE-3.2.0/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
+<script src="../../AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../AdminLTE-3.2.0/dist/js/demo.js"></script>
+<script src="../../AdminLTE-3.2.0/dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
 $(function () {

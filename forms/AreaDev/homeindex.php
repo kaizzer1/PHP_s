@@ -56,6 +56,8 @@ if(isset($_POST['sub'])){
       </li>
     </ul>
   </nav>
+
+  
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -77,7 +79,7 @@ if(isset($_POST['sub'])){
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <img src="../AreaCliente/images/Profile.png" alt="img*">
         <div class="info">
-          <a href="#" class="d-block"><?php echo $f['name']?></a>
+          <a href="profile.php" class="d-block"><?php echo $f['name']?></a>
         </div>
       </div>
       <?php
@@ -90,10 +92,10 @@ if(isset($_POST['sub'])){
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-            <a href="cadastrarProject.php" class="nav-link">
+            <a href="cadastrarDev.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Projetos
+                Desenvolvedores
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -111,41 +113,21 @@ if(isset($_POST['sub'])){
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Explore nossos recursos</h1>
+          <div class="col-md-12" >
+          <img src="../AreaCliente/images/homeimage.jpeg" alt="image" height="400" width="100%">
           </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item">Home</li>
-            </ol>
-          </div>
-
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
-
-
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- left column -->
-          <div class="col-md-6">
-            <!-- general form elements -->
-        
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-
   <!-- /.content-wrapper -->
 
+  </div>
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-</div>
+
 <!-- ./wrapper -->
 
 <!-- jQuery -->

@@ -80,7 +80,7 @@ if(isset($_POST['sub'])){
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <img src="../AreaCliente/images/Profile.png" alt="img*">
         <div class="info">
-          <a href="#" class="d-block"><?php echo $f['name']?></a>
+          <a href="profile.php" class="d-block"><?php echo $f['name']?></a>
         </div>
       </div>
       <?php
@@ -148,7 +148,6 @@ if(isset($_POST['sub'])){
           <!-- left column -->
           <div class="col-md-12">
             <!-- general form elements -->
-            <ion-icon name="add-circle-outline"></ion-icon>
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Lista de Desenvolvedores</h3>
@@ -189,7 +188,7 @@ if(isset($_POST['sub'])){
                                   </td>
                                   <td>
                                   <?php
-                                 if($f['name']=="Lucas Kaizer Brito"){
+                                 if($f['name']=="Lucas Kaizer"){
                                   echo "<img src='../AreaCliente/images/LucasKaizer.jpeg' alt='Dev Avatar' class='img-size-50 mr-3 img-circle'>";      
                                 }else{
                                   echo " <img src='../AreaCliente/images/Alanis Lua.jpg' alt='Dev Avatar' class='img-size-50 mr-3 img-circle'>";
