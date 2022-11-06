@@ -1,18 +1,11 @@
 <?php
 header ('Content-Type: text/html; charset=utf-8');
 include '../../connect.php';
-
 if(isset($_POST['sub'])){
-    $id=$_POST['id'];
-    $name=$_POST['name'];
-    $email=$_POST['email'];
-    $burden=$_POST['burden'];
-    $age=$_POST['age'];
-    $pass=$_POST['pass'];
-    
+    $name=$_POST['text'];
+    $pass=$_POST['int'];
 
-
-    $i ="UPDATE `developer` SET `name` = '$name', `email` = '$email', `burden` = '$burden', `age` = '$age', `pass` = '$pass' WHERE `developer`.`id` = '$id'";
+    $i ="insert into project (name, pass) values ( '$name','$pass') ";
     //$i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
     mysqli_query($con, $i);
 
@@ -49,7 +42,7 @@ if(isset($_POST['sub'])){
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="editarDev.php" class="nav-link">Editar Desenvolvedores</a>
+        <a href="homeindex.php" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -63,6 +56,8 @@ if(isset($_POST['sub'])){
       </li>
     </ul>
   </nav>
+
+  
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -73,7 +68,7 @@ if(isset($_POST['sub'])){
     </a>
 
     <?php
-      $sq="select * from developer where id='$_SESSION[id]'";
+      $sq="select * from reg where id='$_SESSION[id]'";
       $qu=mysqli_query($con,$sq);
       while($f=  mysqli_fetch_assoc($qu)){
     ?>
@@ -97,29 +92,54 @@ if(isset($_POST['sub'])){
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-            <a href="homeindex.php" class="nav-link">
+            <a href="cadastrarProject.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Home
+                Projetos
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-          </li>
+        </li>
+        </ul>
+      </nav>
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
                <li class="nav-item">
             <a href="cadastrarDev.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-              Cadastrar Desenvolvedor
+                Desenvolvedores
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="listaDev.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+        </li>
+        </ul>
+      </nav>
+
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+               <li class="nav-item">
+            <a href="../loginLTE.php" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
               <p>
-              Lista de Desenvolvedores
+                Sair
               </p>
             </a>
-          </li>
+        </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -133,18 +153,71 @@ if(isset($_POST['sub'])){
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
+          <div class="col-sm-6" >
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">Home</li>
-              <li class="breadcrumb-item">Editar Desenvolvedores</li>
             </ol>
           </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
+  
+      <div class="container-fluid">
+      <?php
+        $sq="select * from developer";
+        $qu=mysqli_query($con,$sq);
+        while($f=  mysqli_fetch_assoc($qu)){
+      ?>
+        <div class="row">
+          <div class="col-md-4">
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img src='../AreaCliente/images/LucasKaizer.jpeg' alt='Dev Avatar' class="profile-user-img img-fluid img-circle">
+                </div>
 
+                <h3 class="profile-username text-center"><?php echo $f['name']?></h3>
+
+                <p class="text-muted text-center"><?php echo $f['burden']?></p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>Id</b> <a class="float-right"><?php echo $f['id']?></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>email</b> <a class="float-right"><?php echo $f['email']?></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>age</b> <a class="float-right"><?php echo $f['age']?></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Password</b> <a class="float-right">*****</a>
+                  </li>
+                </ul>
+
+                <a href="editarDev.php" class="btn btn-primary btn-block"><b>Editar</b></a>
+              </div>
+              <!-- /.card-body -->
+              </div>
+              <br> <br/>
+        <br> <br/>
+        <br> <br/>
+            </div>
+          </div>
+        </div>
+        <?php
+                }
+              ?>
+              
+      </div>
+      
+
+        <section class="content">
+          <div class="container-fluid">
+        <!-- Info boxes -->
+        
+    </section>
+    </section>
 
     <section class="content">
       <div class="container-fluid">
@@ -152,46 +225,7 @@ if(isset($_POST['sub'])){
           <!-- left column -->
           <div class="col-md-6">
             <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Editar um Desenvolvedor</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form method="POST"> 
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">ID do Desenvolvedor</label>
-                    <input type="int" class="form-control" id="exampleInputEmail1" placeholder="Enter ID Project" name="id"> 
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Novo name do Desenvolvedor</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Nome" name="name"> 
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Novo email do Desenvolvedor</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Email" name="email"> 
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Novo burden do Desenvolvedor</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cargo" name="burden"> 
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Nova idade do Desenvolvedor</label>
-                    <input type="int" class="form-control" id="exampleInputPassword1" placeholder="idade" name="age"> 
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Nova senha do Desenvolvedor</label>
-                    <input type="int" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pass"> 
-                    <br>
-                    <button type="submit" class="btn btn-primary" name="sub">Editar</button>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-              </form>
-            </div>
-            
-          </div>
+        
         </div>
       </div><!-- /.container-fluid -->
     </section>

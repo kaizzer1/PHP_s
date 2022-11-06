@@ -2,9 +2,16 @@
 header ('Content-Type: text/html; charset=utf-8');
 include '../../connect.php';
 if(isset($_POST['sub'])){
-    $id=$_POST['id'];
+  $name=$_POST['name'];
+  $pass=$_POST['pass'];
+  $progress=$_POST['progress'];
+  $status=$_POST['status'];
+  $git=$_POST['git'];
+  $name_client=$_POST['name_client'];
+  $date_start=$_POST['date_start'];
+  $type=$_POST['type'];
 
-    $i ="DELETE FROM project WHERE `project`.`id` = $id";
+  $i ="insert into project (name, pass, progress, status, git, name_client, date_start, type) values ( '$name','$pass', '$progress', '$status', '$git', '$name_client', '$date_start', '$type') ";
     //$i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
     mysqli_query($con, $i);
 
@@ -41,7 +48,7 @@ if(isset($_POST['sub'])){
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="deletarProjects.php" class="nav-link">Excluir Projetos</a>
+        <a href="cadastrarProject.php" class="nav-link">Cadastrar Projetos</a>
       </li>
     </ul>
 
@@ -65,7 +72,7 @@ if(isset($_POST['sub'])){
     </a>
 
     <?php
-      $sq="select * from reg where id='$_SESSION[id]'";
+      $sq="select * from developer where id='$_SESSION[id]'";
       $qu=mysqli_query($con,$sq);
       while($f=  mysqli_fetch_assoc($qu)){
     ?>
@@ -100,7 +107,7 @@ if(isset($_POST['sub'])){
             <a href="cadastrarProject.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-              Cadastrar Projetos
+              <strong>Cadastrar Projetos</strong>
               </p>
             </a>
           </li>
@@ -112,7 +119,6 @@ if(isset($_POST['sub'])){
               </p>
             </a>
           </li>
-        </ul>
       </nav>
 
       <br> </br>
@@ -150,12 +156,12 @@ if(isset($_POST['sub'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Deletar Projeto</h1>
+            <h1>Cadastro</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">Home</li>
-              <li class="breadcrumb-item">Excluir Projetos</li>
+              <li class="breadcrumb-item">Cadastrar Projetos</li>
             </ol>
           </div>
         </div>
@@ -171,21 +177,47 @@ if(isset($_POST['sub'])){
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Deletar um Projeto</h3>
+                <h3 class="card-title">Cadastrar um Novo Projeto</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form method="POST"> 
                 <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Id do Projeto</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter ID Project" name="id">
-                    <br> 
-                    <button type="submit" class="btn btn-primary" name="sub">Excluir</button>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nome do Projeto</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name Project" name="name"> 
                   </div>
-                </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Progresso</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter progress Project" name="progress"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Status</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter status Project" name="status"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">GitHub</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter git Project" name="git"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nome do Cliente</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name client Project" name="name_client"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Data de inicio</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter date Project" name="date_start"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Tipo</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter type Project" name="type"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Senha de acesso ao Projeto</label>
+                    <input type="int" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pass"> 
+                    <br>
+                    <button type="submit" class="btn btn-primary" name="sub">Submit</button>
+                  </div>
                 <!-- /.card-body -->
-
               </form>
             </div>
             

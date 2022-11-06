@@ -32,7 +32,7 @@
             <li class="current"><a href="index.php">Welcome</a></li>
             <li>
               <a href="../loginLTE.php" class="button primary"
-                >Area Administrativa</a
+                >Entrar</a
               >
             </li>
           </ul>

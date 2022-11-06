@@ -118,6 +118,30 @@ if(isset($_POST['sub'])){
           </li>
         </ul>
       </nav>
+
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+               <li class="nav-item">
+            <a href="../loginLTE.php" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p>
+                Sair
+              </p>
+            </a>
+        </li>
+        </ul>
+      </nav>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -205,7 +229,7 @@ if(isset($_POST['sub'])){
                                   </td>
                                 </br> 
                                   <td class="project-actions text-right">
-                                      <a class="btn btn-primary btn-sm" href="#">
+                                      <a class="btn btn-primary btn-sm" href="detailDev.php">
                                           <i class="fas fa-folder">
                                           </i>
                                           Detail

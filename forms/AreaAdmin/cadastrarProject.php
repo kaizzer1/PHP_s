@@ -2,12 +2,16 @@
 header ('Content-Type: text/html; charset=utf-8');
 include '../../connect.php';
 if(isset($_POST['sub'])){
-    $name=$_POST['text'];
-    $pass=$_POST['int'];
+    $name=$_POST['name'];
+    $pass=$_POST['pass'];
     $progress=$_POST['progress'];
     $status=$_POST['status'];
+    $git=$_POST['git'];
+    $name_client=$_POST['name_client'];
+    $date_start=$_POST['date_start'];
+    $type=$_POST['type'];
 
-    $i ="insert into project (name, pass, progress, status) values ( '$name','$pass', '$progress', '$status') ";
+    $i ="insert into project (name, pass, progress, status, git, name_client, date_start, type) values ( '$name','$pass', '$progress', '$status', '$git', '$name_client', '$date_start', '$type') ";
     //$i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
     mysqli_query($con, $i);
 
@@ -116,6 +120,30 @@ if(isset($_POST['sub'])){
             </a>
           </li>
       </nav>
+
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+               <li class="nav-item">
+            <a href="../loginLTE.php" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p>
+                Sair
+              </p>
+            </a>
+        </li>
+        </ul>
+      </nav>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -157,19 +185,35 @@ if(isset($_POST['sub'])){
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nome do Projeto</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name Project" name="text"> 
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name Project" name="name"> 
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Progresso</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name Project" name="progress"> 
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter progress Project" name="progress"> 
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Status</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name Project" name="status"> 
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter status Project" name="status"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">GitHub</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter git Project" name="git"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nome do Cliente</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name client Project" name="name_client"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Data de inicio</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter date Project" name="date_start"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Tipo</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter type Project" name="type"> 
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Senha de acesso ao Projeto</label>
-                    <input type="int" class="form-control" id="exampleInputPassword1" placeholder="Password" name="int"> 
+                    <input type="int" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pass"> 
                     <br>
                     <button type="submit" class="btn btn-primary" name="sub">Submit</button>
                   </div>

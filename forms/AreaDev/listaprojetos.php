@@ -2,13 +2,10 @@
 header ('Content-Type: text/html; charset=utf-8');
 include '../../connect.php';
 if(isset($_POST['sub'])){
-    $name=$_POST['name'];
-    $email=$_POST['email'];
-    $burden=$_POST['burden'];
-    $age=$_POST['age'];
-    $pass=$_POST['pass'];
+    $name=$_POST['text'];
+    $pass=$_POST['int'];
 
-    $i ="insert into developer (name, email, burden, age, pass) values ( '$name','$email','$burden','$age','$pass') ";
+    $i ="insert into project (name, pass) values ( '$name','$pass') ";
     //$i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
     mysqli_query($con, $i);
 
@@ -45,7 +42,7 @@ if(isset($_POST['sub'])){
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="listaDev.php" class="nav-link">Lista de Desenvolvedores</a>
+        <a href="listaProjetos.php" class="nav-link">Lista de Projetos</a>
       </li>
     </ul>
 
@@ -101,21 +98,45 @@ if(isset($_POST['sub'])){
             </a>
           </li>
                <li class="nav-item">
-            <a href="cadastrarDev.php" class="nav-link">
+            <a href="cadastrarProject.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-              Cadastrar Desenvolvedor
+              Cadastrar Projetos
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="listaDev.php" class="nav-link">
+            <a href="cadastrarProject.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-              <strong>Lista de Desenvolvedores</strong>
+              <strong>Lista de Projetos</strong>
               </p>
             </a>
           </li>
+        </ul>
+      </nav>
+
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+               <li class="nav-item">
+            <a href="../loginLTE.php" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p>
+                Sair
+              </p>
+            </a>
+        </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -134,7 +155,7 @@ if(isset($_POST['sub'])){
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">Home</li>
-              <li class="breadcrumb-item">Lista de Desenvolvedores</li>
+              <li class="breadcrumb-item">Lista de Projetos</li>
             </ol>
           </div>
         </div>
@@ -148,38 +169,44 @@ if(isset($_POST['sub'])){
           <!-- left column -->
           <div class="col-md-12">
             <!-- general form elements -->
-            <ion-icon name="add-circle-outline"></ion-icon>
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Lista de Desenvolvedores</h3>
+                <h3 class="card-title">Lista de Projetos</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form method="POST"> 
                 <div class="card-body">
               </form>
-              
-
               <div class="card-header">
-              <table class="table table-striped projects">
-              <thead>
-                <tr>
-                  <th style="width: 5%">
-                    Id
-                  </th>
-                  </th>
-                  <th style="width: 15%">
-                    Developer Name
-                  </th>
-                </tr>
-                </thead>                  
-                  </table     
-                  <?php
-                $sq="select * from developer";
-                $qu=mysqli_query($con,$sq);
-                while($f=  mysqli_fetch_assoc($qu)){
-              ?>   
-                    </div>
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                          <th style="width: 4%">
+                              Id
+                          </th>
+                          <th style="width: 15%">
+                            Project Name 
+                          </th>
+                          <th style="width: 25%">
+                            Team Members
+                          </th>
+                          <th style="widht: 15%">
+                          Project Progress
+                        </th>
+                        <th style="width: 43%">
+                          Status
+                        </th>
+                      </tr>
+                    </thead>                  
+                  </table
+
+                    <?php
+                      $sq="select * from project";
+                      $qu=mysqli_query($con,$sq);
+                      while($f=  mysqli_fetch_assoc($qu)){
+                    ?>
+                    
                     <div class="card-body p-0">
                       <table class="table table-striped projects">
                           <tbody>
@@ -188,47 +215,71 @@ if(isset($_POST['sub'])){
                                     <?php echo $f['id']?>
                                   </td>
                                   <td>
-                                  <?php
-                                 if($f['name']=="Lucas Kaizer"){
-                                  echo "<img src='../AreaCliente/images/LucasKaizer.jpeg' alt='Dev Avatar' class='img-size-50 mr-3 img-circle'>";      
-                                }else{
-                                  echo " <img src='../AreaCliente/images/Alanis Lua.jpg' alt='Dev Avatar' class='img-size-50 mr-3 img-circle'>";
-                                }
-                            ?>
-          
+                                      <a>
+                                        <?php echo $f['name']?>
+                                      </a>
+                                      <br/>
                                   </td>
                                   <td>
-                                      <a>
-                                      <p>
-                                        <?php echo $f['name']?>
-                                      </p>
-                                      </a>
+                                    <ul class="list-inline">
+                                      <li class="list-inline-item">
+                                        <img alt="Avatar" class="table-avatar" src="../../AdminLTE-3.2.0/dist/img/avatar.png">
+                                      </li>
+                                      <li class="list-inline-item">
+                                        <img alt="Avatar" class="table-avatar" src="../../AdminLTE-3.2.0/dist/img/avatar3.png">
+                                      </li>
+                                      <li class="list-inline-item">
+                                        <img alt="Avatar" class="table-avatar" src="../../AdminLTE-3.2.0/dist/img/avatar2.png">
+                                      </li>
+                                    </ul>
                                   </td>
-                                </br> 
+                                  <td class="project_progress">
+                          <div class="progress progress-sm">
+                            <?php
+                          $progress = $f['progress'];
+                                if( $progress > 49){
+                                  echo "<div class='progress-bar bg-green' role='progressbar' aria-valuenow='77' aria-valuemin='0' aria-valuemax='100' style='width: $progress%'> </div>";      
+                                }else{
+                                  echo "<div class='progress-bar bg-danger' role='progressbar' aria-valuenow='77' aria-valuemin='0' aria-valuemax='100' style='width: $progress%'> </div>";
+                                }
+                            ?>
+                              
+                          </div>
+                          <small>
+                          <?php echo $f['progress']?>% Complete
+                      </td>
+                        <td class="project-state">
+                            <?php 
+                                if($f['status']=="Success" || $f['status']=="Progress"){
+                                  echo "<span class='badge badge-success'> Conclusion </span>";      
+                                }else{
+                                  echo "<span class='badge badge-danger'> Incomplete </span>";
+                                }
+                            ?>
+                        </td>
+                                  </td>
                                   <td class="project-actions text-right">
-                                      <a class="btn btn-primary btn-sm" href="#">
+                                      <a class="btn btn-primary btn-sm" href="detailProject.php">
                                           <i class="fas fa-folder">
                                           </i>
                                           Detail
+                                          View
                                       </a>
-                                      <a class="btn btn-info btn-sm" href="editarDev.php">
+                                      <a class="btn btn-info btn-sm" href="editarProjects.php">
                                           <i class="fas fa-pencil-alt">
                                           </i>
                                           Edit
                                       </a>
                                   </td>
                               </tr>
-            </div>
-            <?php
-                }
-              ?>
-          </div>
         </div>
+        <?php
+          }
+        ?>
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
-
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
@@ -250,10 +301,6 @@ if(isset($_POST['sub'])){
 <!-- AdminLTE for demo purposes -->
 <script src="../../AdminLTE-3.2.0/dist/js/demo.js"></script>
 <!-- Page specific script -->
-
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 <script>
 $(function () {
   bsCustomFileInput.init();

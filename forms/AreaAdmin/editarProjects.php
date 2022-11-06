@@ -4,11 +4,17 @@ include '../../connect.php';
 
 if(isset($_POST['sub'])){
     $name=$_POST['name'];
+    $progress=$_POST['progress'];
+    $status=$_POST['status'];
+    $git=$_POST['git'];
+    $name_client=$_POST['name_client'];
+    $date_start=$_POST['date_start'];
+    $type=$_POST['type'];
     $pass=$_POST['pass'];
     $id=$_POST['id'];
 
 
-    $i ="UPDATE `project` SET `name` = '$name', `pass` = '$pass' WHERE `project`.`id` = '$id'";
+    $i ="UPDATE `project` SET `name` = '$name', `pass` = '$pass', `progress` = '$progress', `status` = '$status', `git` = '$git', `name_client` = '$name_client', `date_start` = '$date_start', `type` = '$type'  WHERE `project`.`id` = '$id'";
     //$i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
     mysqli_query($con, $i);
 
@@ -118,6 +124,30 @@ if(isset($_POST['sub'])){
           </li>
         </ul>
       </nav>
+
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+               <li class="nav-item">
+            <a href="../loginLTE.php" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p>
+                Sair
+              </p>
+            </a>
+        </li>
+        </ul>
+      </nav>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -165,6 +195,30 @@ if(isset($_POST['sub'])){
                   <div class="form-group">
                     <label for="exampleInputPassword1">Novo nome do Projeto</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name" name="name"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Progresso</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter progress Project" name="progress"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Status</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter status Project" name="status"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">GitHub</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter git Project" name="git"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nome do Cliente</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name client Project" name="name_client"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Data de inicio</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter date Project" name="date_start"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Tipo</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter type Project" name="type"> 
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Nova senha do Projeto</label>

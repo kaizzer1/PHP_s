@@ -115,6 +115,30 @@ if(isset($_POST['sub'])){
           </li>
         </ul>
       </nav>
+
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+      <br> </br>
+
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+               <li class="nav-item">
+            <a href="../loginLTE.php" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p>
+                Sair
+              </p>
+            </a>
+        </li>
+        </ul>
+      </nav>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -164,13 +188,10 @@ if(isset($_POST['sub'])){
                           <th style="width: 15%">
                             Project Name 
                           </th>
-                          <th style="width: 25%">
-                            Team Members
-                          </th>
-                          <th style="widht: 15%">
+                          <th style="widht: 0%">
                           Project Progress
                         </th>
-                        <th style="width: 43%">
+                        <th style="width: 57%">
                           Status
                         </th>
                       </tr>
@@ -196,19 +217,6 @@ if(isset($_POST['sub'])){
                                       </a>
                                       <br/>
                                   </td>
-                                  <td>
-                                    <ul class="list-inline">
-                                      <li class="list-inline-item">
-                                        <img alt="Avatar" class="table-avatar" src="../../AdminLTE-3.2.0/dist/img/avatar.png">
-                                      </li>
-                                      <li class="list-inline-item">
-                                        <img alt="Avatar" class="table-avatar" src="../../AdminLTE-3.2.0/dist/img/avatar3.png">
-                                      </li>
-                                      <li class="list-inline-item">
-                                        <img alt="Avatar" class="table-avatar" src="../../AdminLTE-3.2.0/dist/img/avatar2.png">
-                                      </li>
-                                    </ul>
-                                  </td>
                                   <td class="project_progress">
                           <div class="progress progress-sm">
                             <?php
@@ -227,15 +235,15 @@ if(isset($_POST['sub'])){
                         <td class="project-state">
                             <?php 
                                 if($f['status']=="Success" || $f['status']=="Progress"){
-                                  echo "<span class='badge badge-success'> Conclusion </span>";      
+                                  echo "<span class='badge badge-success'> Em Andamento </span>";      
                                 }else{
-                                  echo "<span class='badge badge-danger'> Incomplete </span>";
+                                  echo "<span class='badge badge-danger'> Incompleto </span>";
                                 }
                             ?>
                         </td>
                                   </td>
                                   <td class="project-actions text-right">
-                                      <a class="btn btn-primary btn-sm" href="#">
+                                      <a class="btn btn-primary btn-sm" href="detailProject.php">
                                           <i class="fas fa-folder">
                                           </i>
                                           Detail
